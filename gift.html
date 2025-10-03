@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +30,7 @@
         align-items: center;
         padding: 20px;
         position: relative;
-        overflow: hidden;
+        overflow: auto;
       }
 
       body::before {
@@ -81,7 +81,7 @@
         -webkit-backdrop-filter: blur(20px);
         border-radius: 40px;
         padding: 60px 50px;
-        max-width: 800px;
+        max-width: 1200px;
         width: 100%;
         box-shadow: 0 25px 80px rgba(255, 105, 180, 0.25),
           0 10px 40px rgba(255, 182, 193, 0.2),
@@ -203,14 +203,22 @@
         text-wrap: auto;
       }
 
-      .typewriter.finished {
-        border-right: none;
-        animation: none;
-        width: 100%;
-        height: fit-content;
-        text-wrap: auto;
+      .letter-message {
+        display: block;
+        animation: caretBlink 0.85s step-end infinite;
+        white-space: pre-line;
+        min-height: 1.9em;
+        padding-right: 6px;
+        margin-bottom: 12px;
+        color: #555;
+        line-height: 1.9;
+        font-size: 16px;
       }
 
+      .letter-message.finished {
+        border-right: none;
+        animation: none;
+      }
       @keyframes caretBlink {
         from {
           border-color: rgba(255, 105, 180, 0.85);
@@ -451,6 +459,8 @@
         gap: 28px;
         margin-top: 25px;
         justify-items: center;
+        height: 370px;
+        overflow: auto;
       }
 
       .polaroid {
@@ -459,7 +469,7 @@
         border-radius: 16px;
         box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15),
           0 3px 10px rgba(255, 105, 180, 0.1);
-        width: 240px;
+        width: 480px;
         aspect-ratio: 4/3;
         display: flex;
         align-items: center;
@@ -566,27 +576,97 @@
         }
       }
 
-      .song-info {
+      .song-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
+        margin-top: 30px;
+      }
+
+      .song-card {
+        background: linear-gradient(
+          160deg,
+          rgba(255, 240, 248, 0.9) 0%,
+          rgba(255, 228, 240, 0.95) 50%,
+          rgba(255, 214, 235, 0.9) 100%
+        );
+        border-radius: 20px;
+        padding: 20px 18px;
+        box-shadow: 0 15px 30px rgba(255, 105, 180, 0.15);
+        border: 1px solid rgba(255, 192, 203, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        margin-top: 25px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        justify-content: space-between;
+      }
+
+      .song-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 35px rgba(255, 105, 180, 0.25);
+      }
+
+      .song-cover {
+        width: 70%;
+        aspect-ratio: 1 / 1;
+        border-radius: 16px;
+        background: linear-gradient(140deg, #ff69b4, #ff1493);
+        display: grid;
+        place-items: center;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+      }
+      .song-cover-1 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e028c9b415ea3933ba5664e0382);
+        background-size: contain;
+      }
+      .song-cover-2 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e02c4a7e933ef7fbb7e6485b73a);
+        background-size: contain;
+      }
+      .song-cover-3 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e02d5a8395b0d80b8c48a5d851c);
+        background-size: contain;
+      }
+      .song-cover-4 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e026b18d0490878750cd69abf2c);
+        background-size: contain;
+      }
+      .song-cover-5 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e0221bed1edfd0800448c36461d);
+        background-size: contain;
+      }
+      .song-cover-6 {
+        background-image: url(https://i.scdn.co/image/ab67616d00001e02e321a69d7454d9365c667187);
+        background-size: contain;
       }
 
       .song-title {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 700;
-        color: #ff69b4;
-        margin-bottom: 8px;
-        letter-spacing: 0.3px;
-        text-shadow: 0 2px 15px rgba(255, 105, 180, 0.3);
+        color: #ff3e8a;
+        margin-top: 18px;
+        margin-bottom: 6px;
+        letter-spacing: 0.2px;
       }
 
       .artist {
-        font-size: 17px;
-        color: #ffc0cb;
+        font-size: 15px;
+        color: #c91f6e;
         font-weight: 500;
-        letter-spacing: 0.5px;
+        margin-bottom: 14px;
+        letter-spacing: 0.3px;
       }
 
+      .song-card audio {
+        width: 100%;
+        outline: none;
+        border-radius: 12px;
+      }
       .reasons-list {
         background: white;
         border-radius: 20px;
@@ -643,6 +723,9 @@
 
         .polaroid {
           width: 200px;
+        }
+        .song-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
@@ -743,12 +826,50 @@
           <h2
             id="song-message"
             class="typewriter"
-            data-message="this song reminds me of you (>▂<), this song reminds me of you (>▂<), this song reminds me of you (>▂<),this song reminds me of you (>▂<)"
+            data-message="Whenever I Hear These, I Think of You Nigga"
           ></h2>
-          <div class="vinyl"></div>
-          <div class="song-info">
-            <div class="song-title">The most beautiful thing - Bruno Major</div>
-            <div class="artist">secret message: July • 1:33</div>
+          <div class="song-grid">
+            <div class="song-card">
+              <div class="song-cover song-cover-1">01</div>
+              <div class="song-title">Terrified</div>
+              <div class="artist">Katharine McPhee • secret message: July</div>
+              <audio controls src="audio/Terrified.mp3"></audio>
+            </div>
+
+            <div class="song-card">
+              <div class="song-cover song-cover-2">02</div>
+              <div class="song-title">Bubbly</div>
+              <div class="artist">Colbie Caillat • secret message: July</div>
+              <audio controls src="audio/Bubbly.mp3"></audio>
+            </div>
+
+            <div class="song-card">
+              <div class="song-cover song-cover-3">03</div>
+              <div class="song-title">Sure Thing</div>
+              <div class="artist">Miguel • secret message: July</div>
+              <audio controls src="audio/Sure_Thing.mp3"></audio>
+            </div>
+
+            <div class="song-card">
+              <div class="song-cover song-cover-4">04</div>
+              <div class="song-title">Adore You</div>
+              <div class="artist">Harry Styles • secret message: July</div>
+              <audio controls src="audio/Adore_You.mp3"></audio>
+            </div>
+
+            <div class="song-card">
+              <div class="song-cover song-cover-5">05</div>
+              <div class="song-title">When I Met You</div>
+              <div class="artist">Nigga • secret message: July</div>
+              <audio controls src="audio/When_I_Met_you.mp3"></audio>
+            </div>
+
+            <div class="song-card">
+              <div class="song-cover song-cover-6">06</div>
+              <div class="song-title">The Most Beautiful Thing</div>
+              <div class="artist">Bruno Major • secret message: July</div>
+              <audio controls src="audio/The_Most_Beautiful_Thin.mp3"></audio>
+            </div>
           </div>
         </div>
         <button class="back-btn" onclick="showScreen2()">← Back</button>
@@ -757,23 +878,7 @@
       <div id="screen-letter" class="hidden">
         <div class="content-box">
           <h2>💕 HAPPIEST BIRTHDAY, MY LOVE! 💕</h2>
-          <p>
-            Happy Birthday, my love! Today is all about celebrating the most
-            beautiful soul I've ever known. You bring so much joy into the world
-            just by being yourself. Your kindness, your laughter, your strength,
-            and the way you care so deeply for others - I feel incredibly lucky
-            to walk through life seeing you smile, and sharing even the smallest
-            moments with you is a gift I never take for granted.
-          </p>
-
-          <p>
-            You make every day feel special just by being in it. So today, I
-            hope the world gives back to you a fraction of the love and
-            happiness you bring into it. I hold, I deserve you more than words
-            can say, and I'm so proud of the person you are - Happy Birthday, my
-            love!
-          </p>
-
+          <p id="letter-message" class="letter-message"></p>
           <p
             style="
               text-align: right;
@@ -833,9 +938,84 @@
         <button class="back-btn" onclick="showScreen2()">← Back</button>
       </div>
     </div>
-
+    <audio
+      id="letter-hover-audio"
+      src="audio/LetterSong.mp3"
+      preload="auto"
+      aria-hidden="true"
+    ></audio>
     <script>
+      const letterHoverAudio = document.getElementById("letter-hover-audio");
+      let letterAudioFadeInterval = null;
+      let letterMessageData = null;
+      let letterMessagePromise =
+        typeof fetch === "function"
+          ? fetch("letter-message.json")
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Failed to load letter message");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                const message =
+                  data && typeof data.birthdayLetter === "string"
+                    ? data.birthdayLetter
+                    : "";
+                letterMessageData = { message };
+                return letterMessageData;
+              })
+              .catch(() => {
+                letterMessageData = { message: "" };
+                return letterMessageData;
+              })
+          : null;
+
+      function stopLetterAudio() {
+        if (!letterHoverAudio) return;
+        if (letterAudioFadeInterval) {
+          clearInterval(letterAudioFadeInterval);
+          letterAudioFadeInterval = null;
+        }
+        letterHoverAudio.pause();
+        letterHoverAudio.currentTime = 0;
+        letterHoverAudio.volume = 0;
+      }
+      function fadeInLetterAudio(audio, duration = 2000) {
+        if (!audio) return;
+        if (letterAudioFadeInterval) {
+          clearInterval(letterAudioFadeInterval);
+          letterAudioFadeInterval = null;
+        }
+        const fadeDuration = Math.max(duration, 0);
+        const steps = 20;
+        const stepTime = steps > 0 ? fadeDuration / steps : fadeDuration;
+        const volumeStep = steps > 0 ? 1 / steps : 1;
+
+        audio.currentTime = 0;
+        audio.volume = 0;
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.then === "function") {
+          playPromise.catch(() => {});
+        }
+
+        if (!stepTime) {
+          audio.volume = 1;
+          return;
+        }
+
+        letterAudioFadeInterval = setInterval(() => {
+          const nextVolume = Math.min(1, audio.volume + volumeStep);
+          audio.volume = nextVolume;
+          if (nextVolume >= 1) {
+            clearInterval(letterAudioFadeInterval);
+            letterAudioFadeInterval = null;
+            audio.volume = 1;
+          }
+        }, stepTime);
+      }
       function hideAll() {
+        stopLetterAudio();
         document.querySelectorAll(".container > div").forEach((el) => {
           el.classList.add("hidden");
           el.classList.remove("fade-in");
@@ -864,6 +1044,10 @@
       }
       function showLetter() {
         showScreen("screen-letter");
+        typeLetterMessage();
+        if (letterHoverAudio) {
+          fadeInLetterAudio(letterHoverAudio, 5000);
+        }
       }
       function showPhotos() {
         showScreen("screen-photos");
@@ -897,6 +1081,73 @@
           typeNext();
         };
       })();
+      const typeLetterMessage = (() => {
+        let typingTimer;
+        const startTyping = (letterMessage, text) => {
+          const safeText = text || "";
+          letterMessage.dataset.text = safeText;
+          letterMessage.textContent = "";
+          letterMessage.classList.remove("finished");
+
+          let charIndex = 0;
+          const typeNext = () => {
+            if (charIndex <= safeText.length) {
+              letterMessage.textContent = safeText.slice(0, charIndex);
+              charIndex += 1;
+              typingTimer = setTimeout(typeNext, 45);
+            } else {
+              letterMessage.textContent = safeText;
+              letterMessage.classList.add("finished");
+            }
+          };
+
+          typeNext();
+        };
+
+        return () => {
+          const letterMessage = document.getElementById("letter-message");
+          if (!letterMessage) return;
+
+          if (typingTimer) {
+            clearTimeout(typingTimer);
+          }
+
+          const existingText =
+            (letterMessageData && typeof letterMessageData.message === "string"
+              ? letterMessageData.message
+              : "") ||
+            letterMessage.dataset.text ||
+            letterMessage.textContent ||
+            "";
+
+          if (existingText) {
+            if (
+              !letterMessageData ||
+              typeof letterMessageData.message !== "string"
+            ) {
+              letterMessageData = { message: existingText };
+            }
+            startTyping(letterMessage, existingText);
+            return;
+          }
+
+          if (!letterMessagePromise) {
+            startTyping(letterMessage, "");
+            return;
+          }
+
+          letterMessagePromise
+            .then((data) => {
+              const resolved =
+                data && typeof data.message === "string" ? data.message : "";
+              startTyping(letterMessage, resolved);
+            })
+            .catch(() => {
+              startTyping(letterMessage, "");
+            });
+        };
+      })();
+
     </script>
   </body>
 </html>
