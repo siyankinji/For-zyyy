@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -699,6 +699,71 @@
         border-left-color: #ff1493;
       }
 
+      .flowers-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .flowers-message {
+        width: min(100%, 720px);
+      }
+
+      .flowers-note {
+        margin-top: 12px;
+        text-align: center;
+        font-style: italic;
+        color: #c91f6e;
+        font-size: 18px;
+      }
+
+      .flowers-frame-wrapper {
+        width: min(100%, 960px);
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(255, 105, 180, 0.2),
+          0 12px 30px rgba(255, 182, 193, 0.18);
+        background: #010113;
+        aspect-ratio: 16 / 9;
+        min-height: 320px;
+      }
+
+      .flowers-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: #010113;
+      }
+
+      @media (max-width: 900px) {
+        .flowers-frame-wrapper {
+          border-radius: 28px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .flowers-layout {
+          gap: 18px;
+        }
+        .flowers-note {
+          font-size: 16px;
+        }
+        .flowers-frame-wrapper {
+          border-radius: 22px;
+          min-height: 260px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .flowers-frame-wrapper {
+          border-radius: 18px;
+          min-height: 220px;
+        }
+      }
+
       .hidden {
         display: none;
       }
@@ -783,43 +848,23 @@
       </div>
 
       <div id="screen-flowers" class="hidden">
-        <div class="content-box">
-          <h2>🌷 TULIPS 🌷</h2>
-          <p
-            style="
-              text-align: center;
-              font-style: italic;
-              color: #c91f6e;
-              font-size: 18px;
-            "
-          >
-            your favorite flower
-          </p>
-          <div class="reasons-list">
-            <div class="reason-item">
-              You're as beautiful as tulips in spring
-            </div>
-            <div class="reason-item">
-              Your smile brightens my day like flowers in bloom
-            </div>
-            <div class="reason-item">You bring color to my life</div>
-            <div class="reason-item">
-              Just like tulips, you're delicate yet strong
-            </div>
-            <div class="reason-item">You make my heart blossom</div>
-            <div class="reason-item">
-              Your love grows in my heart like a garden
-            </div>
-            <div class="reason-item">
-              You're the most precious flower in my life
-            </div>
-            <div class="reason-item">
-              Every moment with you is like a beautiful spring day
-            </div>
+        <div class="flowers-layout">
+          <div class="content-box flowers-message">
+            <h2>?? TULIPS ??</h2>
+            <p class="flowers-note">your favorite flower</p>
+          </div>
+          <div class="flowers-frame-wrapper">
+            <iframe
+              src="Flowers/index.html"
+              title="Animated flowers for you"
+              class="flowers-frame"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
         <button class="back-btn" onclick="showScreen2()">← Back</button>
       </div>
+
 
       <div id="screen-song" class="hidden">
         <div class="music-player">
@@ -939,12 +984,22 @@
       </div>
     </div>
     <audio
+      id="flowers-audio"
+      src="audio/LetterSong.mp3"
+      preload="auto"
+      aria-hidden="true"
+    ></audio>
+
+
+    <audio
       id="letter-hover-audio"
       src="audio/LetterSong.mp3"
       preload="auto"
       aria-hidden="true"
     ></audio>
     <script>
+      const flowersAudio = document.getElementById("flowers-audio");
+      let flowersAudioFadeInterval = null;
       const letterHoverAudio = document.getElementById("letter-hover-audio");
       let letterAudioFadeInterval = null;
       let letterMessageData = null;
@@ -970,6 +1025,50 @@
                 return letterMessageData;
               })
           : null;
+
+      function stopFlowersAudio() {
+        if (!flowersAudio) return;
+        if (flowersAudioFadeInterval) {
+          clearInterval(flowersAudioFadeInterval);
+          flowersAudioFadeInterval = null;
+        }
+        flowersAudio.pause();
+        flowersAudio.currentTime = 0;
+        flowersAudio.volume = 0;
+      }
+      function fadeInFlowersAudio(audio, duration = 2000) {
+        if (!audio) return;
+        if (flowersAudioFadeInterval) {
+          clearInterval(flowersAudioFadeInterval);
+          flowersAudioFadeInterval = null;
+        }
+        const fadeDuration = Math.max(duration, 0);
+        const steps = 20;
+        const stepTime = steps > 0 ? fadeDuration / steps : fadeDuration;
+        const volumeStep = steps > 0 ? 1 / steps : 1;
+
+        audio.currentTime = 0;
+        audio.volume = 0;
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.then === "function") {
+          playPromise.catch(() => {});
+        }
+
+        if (!stepTime) {
+          audio.volume = 1;
+          return;
+        }
+
+        flowersAudioFadeInterval = setInterval(() => {
+          const nextVolume = Math.min(1, audio.volume + volumeStep);
+          audio.volume = nextVolume;
+          if (nextVolume >= 1) {
+            clearInterval(flowersAudioFadeInterval);
+            flowersAudioFadeInterval = null;
+            audio.volume = 1;
+          }
+        }, stepTime);
+      }
 
       function stopLetterAudio() {
         if (!letterHoverAudio) return;
@@ -1015,6 +1114,7 @@
         }, stepTime);
       }
       function hideAll() {
+        stopFlowersAudio();
         stopLetterAudio();
         document.querySelectorAll(".container > div").forEach((el) => {
           el.classList.add("hidden");
@@ -1037,6 +1137,9 @@
       }
       function showFlowers() {
         showScreen("screen-flowers");
+        if (flowersAudio) {
+          fadeInFlowersAudio(flowersAudio, 5000);
+        }
       }
       function showSong() {
         showScreen("screen-song");
