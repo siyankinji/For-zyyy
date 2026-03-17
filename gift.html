@@ -14,16 +14,9 @@
       body {
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
           "Segoe UI", system-ui, sans-serif;
-        background: linear-gradient(
-          135deg,
-          #ffeef8 0%,
-          #ffe5f1 25%,
-          #fff0f8 50%,
-          #ffe8f3 75%,
-          #fff5fa 100%
-        );
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
+        background:
+          radial-gradient(circle at 85% 20%, #f72798, transparent 42%),
+          linear-gradient(320deg, #f72798, #1a1a1d);
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -65,31 +58,24 @@
         animation: float 25s ease-in-out infinite reverse;
       }
 
-      @keyframes gradientShift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
       .container {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 40px;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.22),
+          rgba(255, 255, 255, 0.06)
+        );
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+        border-radius: 34px;
         padding: 60px 50px;
         max-width: 1200px;
         width: 100%;
-        box-shadow: 0 25px 80px rgba(255, 105, 180, 0.25),
-          0 10px 40px rgba(255, 182, 193, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        box-shadow: 0 30px 60px rgba(2, 6, 30, 0.45),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06);
         text-align: center;
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255, 192, 203, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.24);
       }
 
       .container::before {
@@ -298,11 +284,7 @@
       }
 
       .choice-card {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 240, 248, 0.9) 0%,
-          rgba(255, 224, 233, 0.9) 100%
-        );
+       background: linear-gradient(135deg, #f93497 0%, #555 100%);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 105, 180, 0.25);
        border-radius: 50%;
@@ -417,7 +399,7 @@
       }
 
       .choice-card .label {
-        color: #c91f6e;
+        color: #fff;
         font-size: 15px;
         font-weight: 700;
         letter-spacing: 0.5px;

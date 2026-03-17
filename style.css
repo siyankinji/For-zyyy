@@ -15,11 +15,14 @@ body {
   align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--dark-color);
+  background:
+    radial-gradient(circle at 85% 20%, #f72798, transparent 42%),
+    linear-gradient(320deg, #f72798, #1a1a1d);
   overflow: hidden;
   perspective: 1000px;
 }
 .night {
+  opacity: 0.45;
   position: fixed;
   left: 50%;
   top: 0;

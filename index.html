@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Gift For You</title>
     <style>
-      :root {
-        --pink-1: #ffe6f2;
-        --pink-2: #ffd1e8;
-        --pink-3: #ff94c2;
+        :root {
         --accent: #ff4fa0;
-        --text: #7c3d63;
+        --text: #f9eaff;
+        --glass: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.24);
       }
+
 
       * { box-sizing: border-box; }
 
@@ -19,7 +19,9 @@
         margin: 0;
         min-height: 100vh;
         font-family: "Poppins", "Segoe UI", sans-serif;
-        background: linear-gradient(160deg, var(--pink-1), #fff6fb 45%, var(--pink-2));
+        background:
+          radial-gradient(circle at 85% 20%, #f72798, transparent 42%),
+          linear-gradient(320deg, #f72798, #1a1a1d);
         display: grid;
         place-items: center;
         color: var(--text);
@@ -28,10 +30,11 @@
 
       .card {
         width: min(500px, 100%);
-        background: rgba(255, 255, 255, 0.9);
-        border: 2px solid #ffd2e8;
-        border-radius: 24px;
-        box-shadow: 0 20px 45px rgba(255, 105, 180, 0.2);
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06));
+        backdrop-filter: blur(22px);
+        border: 1px solid var(--glass-border);
+        border-radius: 34px;
+        box-shadow: 0 30px 60px rgba(2, 6, 30, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
         text-align: center;
         padding: 30px 20px 34px;
       }
@@ -82,10 +85,10 @@
 
       button:hover { transform: translateY(-2px); }
 
-      .hint {
+     .hint {
         margin-top: 16px;
         font-size: 0.95rem;
-        color: #ab6790;
+        color: rgba(249, 234, 255, 0.76);
       }
     </style>
   </head>
