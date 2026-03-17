@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baby Lock</title>
+    <style>
+      :root {
+        --soft-bg: #fff3fa;
+        --soft-card: #fff;
+        --line: #ffd3ea;
+        --pink: #ff4fa0;
+        --text: #7a3f63;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Poppins", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top right, #ffe1f1, var(--soft-bg) 48%, #ffe8f5);
+        color: var(--text);
+        padding: 20px;
+      }
+      .phone {
+        width: min(380px, 100%);
+        background: var(--soft-card);
+        border-radius: 30px;
+        border: 2px solid var(--line);
+        box-shadow: 0 22px 45px rgba(255, 105, 180, 0.2);
+        padding: 26px 20px 24px;
+        text-align: center;
+      }
+      .top-gif {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ffd2e8;
+        margin-bottom: 12px;
+      }
+      h1 { margin: 0; font-size: 1.5rem; }
+      .subtitle { margin: 7px 0 18px; color: #a25a84; }
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin: 0 0 18px;
+      }
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid #ffc5e2;
+        background: transparent;
+      }
+      .dot.filled { background: var(--pink); border-color: var(--pink); }
+      .pad {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .pin-btn {
+        border: none;
+        border-radius: 15px;
+        padding: 14px 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #8d4671;
+        background: #ffeaf5;
+        cursor: pointer;
+      }
+      .pin-btn:active { transform: scale(0.96); }
+      .danger {
+        margin-top: 14px;
+        color: #d7378a;
+        font-weight: 600;
+        min-height: 1.5em;
+      }
+      #tryAgain {
+        display: none;
+        margin-top: 8px;
+        border: none;
+        border-radius: 999px;
+        padding: 10px 18px;
+        background: var(--pink);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="phone">
+      <img src="CatLetter.gif" alt="Cute cat" class="top-gif" />
+      <h1>for my baby’s eyes only</h1>
+      <p class="subtitle">Enter our monthsary to continue.</p>
+
+      <div class="dots" id="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+
+      <div class="pad" id="pad">
+        <button class="pin-btn" data-value="1">1</button>
+        <button class="pin-btn" data-value="2">2</button>
+        <button class="pin-btn" data-value="3">3</button>
+        <button class="pin-btn" data-value="4">4</button>
+        <button class="pin-btn" data-value="5">5</button>
+        <button class="pin-btn" data-value="6">6</button>
+        <button class="pin-btn" data-value="7">7</button>
+        <button class="pin-btn" data-value="8">8</button>
+        <button class="pin-btn" data-value="9">9</button>
+        <button class="pin-btn" data-action="clear">⌫</button>
+        <button class="pin-btn" data-value="0">0</button>
+        <button class="pin-btn" data-action="enter">↵</button>
+      </div>
+
+      <p id="error" class="danger"></p>
+      <button id="tryAgain" type="button">Try Again</button>
+    </section>
+
+    <script>
+      const CORRECT_PIN = "0825";
+      const dots = Array.from(document.querySelectorAll(".dot"));
+      const pad = document.getElementById("pad");
+      const error = document.getElementById("error");
+      const tryAgain = document.getElementById("tryAgain");
+
+      let pin = "";
+
+      function renderDots() {
+        dots.forEach((dot, idx) => dot.classList.toggle("filled", idx < pin.length));
+      }
+
+      function resetAttempt() {
+        pin = "";
+        renderDots();
+        error.textContent = "";
+        tryAgain.style.display = "none";
+      }
+
+      function submitPin() {
+        if (pin.length !== 4) return;
+
+        if (pin === CORRECT_PIN) {
+          window.location.href = "gift.html";
+          return;
+        }
+
+        error.textContent = "wrong password, you sure you’re my baby?";
+        tryAgain.style.display = "inline-block";
+      }
+
+      pad.addEventListener("click", (event) => {
+        const button = event.target.closest("button");
+        if (!button) return;
+
+        if (button.dataset.action === "clear") {
+          pin = pin.slice(0, -1);
+          renderDots();
+          return;
+        }
+
+        if (button.dataset.action === "enter") {
+          submitPin();
+          return;
+        }
+
+        const value = button.dataset.value;
+        if (!value || pin.length >= 4) return;
+
+        pin += value;
+        renderDots();
+
+        if (pin.length === 4) {
+          submitPin();
+        }
+      });
+
+      tryAgain.addEventListener("click", resetAttempt);
+    </script>
+  </body>
+</html>
