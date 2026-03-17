@@ -1617,7 +1617,16 @@
           }
         }, stepTime);
       }
-      function hideAll() {
+     function hideAll() {
+        if (spotifyController && typeof spotifyController.pause === "function") {
+          spotifyController.pause();
+        }
+
+        document.querySelectorAll("video").forEach((video) => {
+          video.pause();
+          video.currentTime = 0;
+        });
+
         stopFlowersAudio();
         stopLetterAudio();
         document.querySelectorAll(".container > div").forEach((el) => {
