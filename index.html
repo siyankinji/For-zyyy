@@ -106,22 +106,32 @@
       const yesBtn = document.getElementById("yesBtn");
       const noBtn = document.getElementById("noBtn");
 
-      const noCount = Number(sessionStorage.getItem("noCount") || 0);
+ let noCount = Number(sessionStorage.getItem("noCount") || 0);
 
-     if (noCount >= 5) {
-        questionText.textContent = "Okay... now I'm crying 🥺";
-        heroGif.src = "CatSad.gif";
-        heroGif.alt = "Crying cat";
-      } else if (noCount === 0) {
-        questionText.textContent = "Hello baby, do you want to see my gift?";
-      } else if (noCount === 1) {
-        questionText.textContent = "WHY?";
-      } else {
-        questionText.textContent = "CLICK YES!";
-      }
+      const updateNoState = () => {
+        if (noCount >= 5) {
+          questionText.textContent = "Okay... now I'm crying 🥺";
+          heroGif.src = "CatSad.gif";
+          heroGif.alt = "Crying cat";
+        } else if (noCount === 0) {
+          questionText.textContent = "Hello baby, do you want to see my gift?";
+          heroGif.src = "CatFlowers.gif";
+          heroGif.alt = "Cute cat";
+        } else if (noCount === 1) {
+          questionText.textContent = "WHY?";
+          heroGif.src = "CatFlowers.gif";
+          heroGif.alt = "Cute cat";
+        } else {
+          questionText.textContent = "CLICK YES!";
+          heroGif.src = "CatFlowers.gif";
+          heroGif.alt = "Cute cat";
+        }
 
-      const growth = 1 + noCount * 0.2;
-      yesBtn.style.transform = `scale(${growth})`;
+        const growth = 1 + noCount * 0.2;
+        yesBtn.style.transform = `scale(${growth})`;
+      };
+
+      updateNoState();
 
       yesBtn.addEventListener("click", () => {
         sessionStorage.removeItem("noCount");
@@ -129,8 +139,9 @@
       });
 
       noBtn.addEventListener("click", () => {
-        sessionStorage.setItem("noCount", String(noCount + 1));
-        window.location.reload();
+        noCount += 1;
+        sessionStorage.setItem("noCount", String(noCount));
+        updateNoState();
       });
     </script>
   </body>
