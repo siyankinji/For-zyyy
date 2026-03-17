@@ -1188,8 +1188,6 @@
         <button class="back-btn" onclick="showScreen2()">← Back</button>
       </div>
 
-   
-
       <div id="screen-letter" class="hidden">
         <div class="flex-right">
           <div class="content-box music-side">
@@ -1244,23 +1242,14 @@
             <div class="tv-topbar">
               <span>Now showing • Screen Photos</span>
               <div class="platform-badges">
-                <span class="platform-badge netflix">ZuzyTv
-            
+                <span class="platform-badge netflix">NETFLIX</span>
               </div>
             </div>
 
             <div class="tv-screen">
-              <div
-                class="mp4-holder"
-                role="img"
-                aria-label="16:9 MP4 placeholder"
-              >
-                <div class="ios-pill"></div>
-                <div class="mp4-text">
-                  <p class="title">MP4 HOLDER · 16:9</p>
-                  <p class="subtitle">Drop your .mp4 memory clip here</p>
-                </div>
-              </div>
+              <video controls>
+                <source src="movie.mp4" type="video/mp4" />
+              </video>
 
               <div class="photo-strip">
                 <img src="Zuzy1.png" alt="memory 1" />
@@ -1273,12 +1262,7 @@
         <button class="back-btn" onclick="showScreen2()">← Back</button>
       </div>
     </div>
-    <audio
-      id="flowers-audio"
-  
-      preload="auto"
-      aria-hidden="true"
-    ></audio>
+    <audio id="flowers-audio" preload="auto" aria-hidden="true"></audio>
     <script>
       const IMAGE_EXT = /\.(png|jpe?g|gif|webp|bmp|svg)(\?.*)?$/i;
       const VIDEO_EXT = /\.(mp4|webm|ogg|mov)(\?.*)?$/i;
