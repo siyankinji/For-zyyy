@@ -6,42 +6,71 @@
     <title>Baby Lock</title>
     <style>
       :root {
-        --soft-bg: #fff3fa;
-        --soft-card: #fff;
-        --line: #ffd3ea;
+        --lock-bg: #0f1224;
+        --lock-bg-soft: #1d2242;
         --pink: #ff4fa0;
-        --text: #7a3f63;
+        --glass: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.24);
+        --text: #f9eaff;
+        --muted: rgba(249, 234, 255, 0.76);
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: "Poppins", "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top right, #ffe1f1, var(--soft-bg) 48%, #ffe8f5);
+        background: 
+          radial-gradient(circle at 85% 20%, #F72798, transparent 42%),
+          linear-gradient(320deg, #F72798, #1A1A1D);
         color: var(--text);
-        padding: 20px;
+        padding: 16px;
       }
       .phone {
         width: min(380px, 100%);
-        background: var(--soft-card);
-        border-radius: 30px;
-        border: 2px solid var(--line);
-        box-shadow: 0 22px 45px rgba(255, 105, 180, 0.2);
-        padding: 26px 20px 24px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06));
+        backdrop-filter: blur(22px);
+        border-radius: 34px;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 30px 60px rgba(2, 6, 30, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        padding: 20px 20px 26px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .phone::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 42%);
+        pointer-events: none;
+      }
+      .status-time {
+        font-size: 3.5rem;
+        line-height: 1;
+        margin: 16px 0 4px;
+        letter-spacing: 0.04em;
+        font-weight: 600;
+        text-shadow: 0 8px 25px rgba(0, 0, 0, 0.32);
+      }
+      .status-date {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 0.98rem;
       }
       .top-gif {
-        width: 90px;
-        height: 90px;
+        width: 84px;
+        height: 84px;
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid #ffd2e8;
-        margin-bottom: 12px;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+        margin-bottom: 10px;
       }
-      h1 { margin: 0; font-size: 1.5rem; }
-      .subtitle { margin: 7px 0 18px; color: #a25a84; }
+      h1 { margin: 0; font-size: 1.34rem; }
+      .subtitle { margin: 7px 0 18px; color: var(--muted); }
       .dots {
         display: flex;
         justify-content: center;
@@ -49,29 +78,84 @@
         margin: 0 0 18px;
       }
       .dot {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        border: 2px solid #ffc5e2;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
         background: transparent;
+        transition: all 0.2s ease;
       }
-      .dot.filled { background: var(--pink); border-color: var(--pink); }
+      .dot.filled {
+        background: #fff;
+        border-color: #fff;
+        transform: scale(1.1);
+      }
       .pad {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 12px;
+        position: relative;
+        z-index: 2;
       }
       .pin-btn {
-        border: none;
-        border-radius: 15px;
-        padding: 14px 0;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: #8d4671;
-        background: #ffeaf5;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 50%;
+        width: 76px;
+        height: 76px;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #ffffff;
+        background: var(--glass);
         cursor: pointer;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 18px rgba(0, 0, 0, 0.22);
+        transition: transform 0.18s ease, box-shadow 0.2s ease, background-color 0.25s ease;
+        overflow: hidden;
       }
-      .pin-btn:active { transform: scale(0.96); }
+      .pin-btn:active { transform: scale(0.95); }
+      .pin-btn.pressed {
+        animation: btnPulse 0.35s ease;
+      }
+      .pin-btn::after {
+        content: "";
+        position: absolute;
+        inset: 14%;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .pin-btn .ripple {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.65);
+        transform: translate(-50%, -50%);
+        animation: rippleBurst 0.45s ease-out;
+        pointer-events: none;
+      }
+
+      @keyframes btnPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.9); background-color: rgba(255, 255, 255, 0.3); }
+        100% { transform: scale(1); }
+      }
+
+      @keyframes rippleBurst {
+        0% {
+          opacity: 0.8;
+          width: 8px;
+          height: 8px;
+        }
+        100% {
+          opacity: 0;
+          width: 105px;
+          height: 105px;
+        }
+      }
       .danger {
         display: none;
       }
@@ -161,6 +245,8 @@
   </head>
   <body>
     <section class="phone">
+      <h2 class="status-time">10:28</h2>
+      <p class="status-date">Sunday, August 25</p>
       <img src="CatLetter.gif" alt="Cute cat" class="top-gif" />
       <h1>for my baby’s eyes only</h1>
       <p class="subtitle">Enter our monthsary to continue.</p>
@@ -229,6 +315,16 @@
       pad.addEventListener("click", (event) => {
         const button = event.target.closest("button");
         if (!button) return;
+
+        button.classList.add("pressed");
+        const ripple = document.createElement("span");
+        ripple.className = "ripple";
+        button.appendChild(ripple);
+
+        setTimeout(() => {
+          button.classList.remove("pressed");
+          ripple.remove();
+        }, 420);
 
         if (button.dataset.action === "clear") {
           pin = pin.slice(0, -1);
