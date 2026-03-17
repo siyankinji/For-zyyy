@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,8 +12,9 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-          "Segoe UI", system-ui, sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          system-ui, sans-serif;
         background:
           radial-gradient(circle at 85% 20%, #f72798, transparent 42%),
           linear-gradient(320deg, #f72798, #1a1a1d);
@@ -70,7 +71,8 @@
         padding: 60px 50px;
         max-width: 1200px;
         width: 100%;
-        box-shadow: 0 30px 60px rgba(2, 6, 30, 0.45),
+        box-shadow:
+          0 30px 60px rgba(2, 6, 30, 0.45),
           inset 0 0 0 1px rgba(255, 255, 255, 0.06);
         text-align: center;
         position: relative;
@@ -119,6 +121,11 @@
         }
       }
 
+      .flex-right {
+        display: grid;
+        gap: 100px;
+        grid-template-columns: repeat(2, 1fr);
+      }
       .cat-gif {
         width: 140px;
         height: 140px;
@@ -168,7 +175,7 @@
         }
       }
 
-      .subtitle {
+      .subtitle1 {
         color: #ff69b4;
         font-size: 19px;
         margin-bottom: 35px;
@@ -230,7 +237,8 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 8px 25px rgba(255, 20, 147, 0.35),
+        box-shadow:
+          0 8px 25px rgba(255, 20, 147, 0.35),
           0 2px 8px rgba(255, 105, 180, 0.2);
         letter-spacing: 0.5px;
         position: relative;
@@ -259,7 +267,8 @@
 
       button:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 12px 35px rgba(255, 20, 147, 0.45),
+        box-shadow:
+          0 12px 35px rgba(255, 20, 147, 0.45),
           0 4px 15px rgba(255, 105, 180, 0.3);
       }
 
@@ -276,7 +285,7 @@
 
       .choices-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         margin-top: 35px;
         animation: fadeIn 0.8s ease;
@@ -284,10 +293,10 @@
       }
 
       .choice-card {
-       background: linear-gradient(135deg, #f93497 0%, #555 100%);
+        background: linear-gradient(135deg, #f93497 0%, #555 100%);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 105, 180, 0.25);
-       border-radius: 50%;
+        border-radius: 50%;
         width: min(100%, 220px);
         aspect-ratio: 1 / 1;
         padding: 24px;
@@ -334,7 +343,7 @@
         opacity: 1;
       }
 
-  .choice-card:hover {
+      .choice-card:hover {
         transform: translateY(-8px) scale(1.05);
         box-shadow: 0 20px 50px rgba(255, 105, 180, 0.35);
         border-color: rgba(255, 105, 180, 0.5);
@@ -407,15 +416,11 @@
       }
 
       .content-box {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 245, 247, 0.95) 0%,
-          rgba(255, 240, 248, 0.95) 100%
-        );
+        background: linear-gradient(135deg, #f93497 0%, #555 100%);
         backdrop-filter: blur(15px);
         border: 2px solid rgba(255, 105, 180, 0.25);
         border-radius: 30px;
-        padding: 40px;
+        padding: 10px;
         margin-top: 35px;
         text-align: left;
         animation: fadeIn 0.8s ease;
@@ -517,7 +522,8 @@
         background: #fff;
         padding: 14px;
         border-radius: 16px;
-        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15),
+        box-shadow:
+          0 10px 35px rgba(0, 0, 0, 0.15),
           0 3px 10px rgba(255, 105, 180, 0.1);
         width: 480px;
         aspect-ratio: 4/3;
@@ -531,7 +537,8 @@
 
       .polaroid:hover {
         transform: translateY(-10px) rotate(2deg) scale(1.05);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2),
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.2),
           0 5px 20px rgba(255, 105, 180, 0.2);
       }
 
@@ -574,7 +581,8 @@
         margin-top: 25px;
         color: white;
         animation: fadeIn 0.9s ease;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 192, 203, 0.15);
       }
@@ -599,7 +607,8 @@
         margin: 25px auto;
         position: relative;
         animation: spin 4s linear infinite;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+        box-shadow:
+          0 15px 40px rgba(0, 0, 0, 0.5),
           inset 0 0 30px rgba(0, 0, 0, 0.3);
       }
 
@@ -613,7 +622,8 @@
         height: 70px;
         background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
         border-radius: 50%;
-        box-shadow: 0 0 30px rgba(255, 105, 180, 0.8),
+        box-shadow:
+          0 0 30px rgba(255, 105, 180, 0.8),
           inset 0 0 20px rgba(255, 255, 255, 0.2);
       }
 
@@ -648,7 +658,9 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         justify-content: space-between;
       }
 
@@ -773,7 +785,8 @@
         width: min(100%, 960px);
         border-radius: 32px;
         overflow: hidden;
-        box-shadow: 0 25px 60px rgba(255, 105, 180, 0.2),
+        box-shadow:
+          0 25px 60px rgba(255, 105, 180, 0.2),
           0 12px 30px rgba(255, 182, 193, 0.18);
         background: #010113;
         aspect-ratio: 16 / 9;
@@ -787,7 +800,118 @@
         display: block;
         background: #010113;
       }
+      .card {
+        width: min(100%, 50vw);
+        background: var(--surface);
+        border: 1px solid var(--surface-border);
+        padding: 30px 24px;
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        display: flex;
+        animation: cardFloat 8s ease-in-out infinite;
+        flex-direction: column;
+      }
+      .carddiv {
+        width: 100%;
+      }
+      .cardletter {
+        padding: 50px 10px;
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+      }
 
+      h1 {
+        font-size: clamp(2rem, 4.8vw, 3.1rem);
+        margin: 0;
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        margin: 12px auto 0;
+        max-width: 640px;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-soft);
+        text-align: start;
+      }
+
+      h2 {
+        margin: 30px 0 12px;
+        font-size: 1.3rem;
+      }
+
+      .gallery {
+        margin-top: 8px;
+      }
+
+      .slideshow {
+        position: relative;
+        width: min(100%, 760px);
+        margin: 0 auto;
+        border-radius: 18px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: rgba(0, 0, 0, 0.24);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.45s ease;
+        pointer-events: none;
+      }
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .slide img,
+      .slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 9px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+
+      .dot {
+        aspect-ratio: 2 / 1;
+        width: 12px;
+        border-radius: 50px;
+        border: 0;
+        background: #ffffff78;
+        transition: all ease 1s;
+      }
+
+      .dot.active {
+        background: var(--dot-active);
+        aspect-ratio: 10 / 1;
+        width: 50px;
+        background: white;
+        transition: all ease 1s;
+      }
+
+      .gallery-status {
+        margin-top: 12px;
+        font-size: 0.94rem;
+        color: var(--text-soft);
+        margin: 20px 70px;
+        font-size: 20px;
+      }
+
+      #autoplayHint {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
       @media (max-width: 900px) {
         .flowers-frame-wrapper {
           border-radius: 28px;
@@ -849,21 +973,13 @@
     <div class="container">
       <div id="screen2" class="fade-in">
         <h1>THESE ARE FOR YOU!</h1>
-        <p class="subtitle">I hope you like it, I love you</p>
+        <p class="subtitle1">I hope you like it, I love you</p>
         <div class="choices-grid">
-
           <div class="choice-card" onclick="showFlowers()">
-            <div class="icon">
-              <img src="Flowers.gif" alt="flowers" />
-            </div>
-            <div class="label">Flowers</div>
-          </div>
-
-          <div class="choice-card" onclick="showSong()">
             <div class="icon">
               <img src="Music.gif" alt="music" />
             </div>
-            <div class="label">Song</div>
+            <div class="label">Ur Fav</div>
           </div>
 
           <div class="choice-card" onclick="showLetter()">
@@ -951,26 +1067,39 @@
       </div>
 
       <div id="screen-letter" class="hidden">
-        <div class="content-box">
-          <h2> HAPPIEST BIRTHDAY, MY LOVE! </h2>
-          <p id="letter-message" class="letter-message"></p>
-          <p
-            style="
-              text-align: right;
-              font-style: italic;
-              color: #c91f6e;
-              margin-top: 20px;
-            "
-          >
-            Sincerely,<br />-Kiiii 
-          </p>
+        <div class="flex-right">
+          <div class="content-box music-side">
+            <div class="carddiv m-0-50">
+              <div class="gallery">
+                <h3 id="galleryStatus" class="gallery-status">
+                  Loading memories…
+                </h3>
+                <div id="slideshow" class="slideshow" aria-live="polite"></div>
+                <div
+                  style="display: none"
+                  id="dots"
+                  class="dots"
+                  aria-label="Slideshow pagination"
+                ></div>
+              </div>
+              <div id="spotifyMount" style="margin-top: 15px"></div>
+              <p id="autoplayHint">
+                (If it doesn't play automatically, tap the button again 💖)
+              </p>
+            </div>
+            <script
+              src="https://open.spotify.com/embed/iframe-api/v1"
+              async
+            ></script>
+          </div>
+          <div class="content-box letter-side"></div>
         </div>
         <button class="back-btn" onclick="showScreen2()">← Back</button>
       </div>
 
       <div id="screen-photos" class="hidden">
         <div class="content-box">
-          <h2> Little Moments, Big Memories </h2>
+          <h2>Little Moments, Big Memories</h2>
 
           <div class="polaroid-grid">
             <div class="polaroid">
@@ -1019,13 +1148,243 @@
       preload="auto"
       aria-hidden="true"
     ></audio>
+    <script>
+      const IMAGE_EXT = /\.(png|jpe?g|gif|webp|bmp|svg)(\?.*)?$/i;
+      const VIDEO_EXT = /\.(mp4|webm|ogg|mov)(\?.*)?$/i;
 
-    <audio
-      id="letter-hover-audio"
-      src="audio/FlowersSong.mp3"
-      preload="auto"
-      aria-hidden="true"
-    ></audio>
+      const mount = document.getElementById("spotifyMount");
+      const autoplayHint = document.getElementById("autoplayHint");
+      const slideshow = document.getElementById("slideshow");
+      const dotsWrap = document.getElementById("dots");
+      const galleryStatus = document.getElementById("galleryStatus");
+      const trackId = "7KD8oUUpidul2ROxTIhPAw";
+      const ambientLayer = document.getElementById("ambientLayer");
+      const foregroundHeartLayer = document.getElementById(
+        "foregroundHeartLayer",
+      );
+      let spotifyController = null;
+      let slideTimer = null;
+
+      const fallbackPalette = {
+        bgStart: "#2e1328",
+        bgEnd: "#f877ad",
+        surface: "rgba(255, 255, 255, 0.1)",
+        surfaceBorder: "rgba(255, 255, 255, 0.28)",
+        textMain: "#fff7fb",
+        textSoft: "rgba(255, 247, 251, 0.85)",
+        accent: "#ff4f83",
+        accentHover: "#ff2f71",
+      };
+
+      function applyPalette(palette) {
+        const map = [
+          ["--bg-gradient-start", palette.bgStart],
+          ["--bg-gradient-end", palette.bgEnd],
+          ["--surface", palette.surface],
+          ["--surface-border", palette.surfaceBorder],
+          ["--text-main", palette.textMain],
+          ["--text-soft", palette.textSoft],
+          ["--accent", palette.accent],
+          ["--accent-hover", palette.accentHover],
+          ["--dot", palette.dot],
+          ["--dot-active", palette.dotActive],
+        ];
+        map.forEach(([k, v]) => {
+          if (typeof v === "string" && v.trim())
+            document.documentElement.style.setProperty(k, v.trim());
+        });
+      }
+
+      function parseJsonIfString(value) {
+        if (typeof value !== "string") return value;
+        try {
+          return JSON.parse(value);
+        } catch {
+          return value;
+        }
+      }
+
+      function normalizeMedia(item = {}, fallbackOrder = 1) {
+        const src = item.src || item.url || item.path || "";
+        if (!src) return null;
+        const type = item.type || (VIDEO_EXT.test(src) ? "video" : "image");
+        return {
+          src,
+          type,
+          sortOrder:
+            Number(item.sortOrder) > 0 ? Number(item.sortOrder) : fallbackOrder,
+        };
+      }
+
+      async function loadSlideshowConfig() {
+        const res = await fetch("./slideshow.json", { cache: "no-store" });
+        if (!res.ok)
+          throw new Error(`Failed to load slideshow.json (${res.status})`);
+        const data = parseJsonIfString(await res.json());
+        const slideshowData =
+          parseJsonIfString(data?.valentine?.slideshow) ||
+          data?.slideshow ||
+          data;
+        const assets = (slideshowData?.assets || [])
+          .map((item, i) => normalizeMedia(item, i + 1))
+          .filter(Boolean)
+          .sort((a, b) => a.sortOrder - b.sortOrder);
+        const intervalMs =
+          Number(slideshowData?.intervalMs) >= 2000
+            ? Number(slideshowData.intervalMs)
+            : 5000;
+        const palette =
+          data?.valentine?.palette || data?.palette || fallbackPalette;
+        return { assets, intervalMs, palette };
+      }
+
+      function setGalleryStatus(message) {
+        if (galleryStatus) galleryStatus.textContent = message;
+      }
+
+      function renderSlideshow(items, intervalMs) {
+        if (!slideshow || !dotsWrap) return;
+        slideshow.innerHTML = "";
+        dotsWrap.innerHTML = "";
+        if (slideTimer) clearInterval(slideTimer);
+        if (!items.length) {
+          setGalleryStatus("No memories found in slideshow.json.");
+          return;
+        }
+
+        const slides = items.map((item) => {
+          const slide = document.createElement("div");
+          slide.className = "slide";
+          const media = document.createElement(
+            item.type === "video" ? "video" : "img",
+          );
+          media.src = item.src;
+          if (item.type === "video") {
+            media.muted = true;
+            media.playsInline = true;
+            media.preload = "metadata";
+            media.loop = true;
+          } else {
+            media.alt = "Memory";
+            media.loading = "lazy";
+          }
+          slide.appendChild(media);
+          slideshow.appendChild(slide);
+          return slide;
+        });
+
+        const dots = slides.map((_, i) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "dot";
+          dot.setAttribute("aria-label", `Show slide ${i + 1}`);
+          dot.addEventListener("click", () => activate(i));
+          dotsWrap.appendChild(dot);
+          return dot;
+        });
+
+        let current = 0;
+        function activate(i) {
+          current = i;
+          slides.forEach((slide, idx) => {
+            const active = idx === i;
+            slide.classList.toggle("active", active);
+            dots[idx].classList.toggle("active", active);
+            const video = slide.querySelector("video");
+            if (!video) return;
+            if (active) {
+              video.currentTime = 0;
+              video.play().catch(() => {});
+            } else video.pause();
+          });
+        }
+
+        activate(0);
+        setGalleryStatus("");
+        if (slides.length > 1)
+          slideTimer = setInterval(
+            () => activate((current + 1) % slides.length),
+            intervalMs,
+          );
+      }
+
+      function createFloatingHearts() {
+        if (!ambientLayer) return;
+        const heartCount = window.innerWidth < 640 ? 30 : 50;
+        const heartChar = ["❤", "♡", "💖", "🌷", "💕"];
+        ambientLayer.innerHTML = "";
+        if (foregroundHeartLayer) foregroundHeartLayer.innerHTML = "";
+
+        for (let index = 0; index < heartCount; index += 1) {
+          const heart = document.createElement("span");
+          heart.className = "floating-heart";
+          heart.textContent =
+            heartChar[Math.floor(Math.random() * heartChar.length)];
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.setProperty(
+            "--heart-size",
+            `${0.8 + Math.random() * 1.4}rem`,
+          );
+          heart.style.setProperty("--heart-delay", `${Math.random() * 10}s`);
+          heart.style.setProperty(
+            "--heart-duration",
+            `${9 + Math.random() * 10}s`,
+          );
+          heart.style.setProperty(
+            "--heart-drift",
+            `${-80 + Math.random() * 160}px`,
+          );
+          const isForegroundHeart = Math.random() < 0.28;
+          if (isForegroundHeart) heart.classList.add("floating-heart--front");
+          (isForegroundHeart && foregroundHeartLayer
+            ? foregroundHeartLayer
+            : ambientLayer
+          ).appendChild(heart);
+        }
+      }
+
+      const hideAutoplayHint = () => {
+        if (autoplayHint) autoplayHint.style.display = "none";
+      };
+      const attemptSpotifyPlay = () => {
+        if (spotifyController) spotifyController.play();
+      };
+      const initSpotifyEmbed = (IFrameAPI) => {
+        if (!mount || !trackId) return;
+        mount.innerHTML = "";
+        IFrameAPI.createController(
+          mount,
+          { uri: `spotify:track:${trackId}`, width: "100%", height: 152 },
+          (EmbedController) => {
+            spotifyController = EmbedController;
+            attemptSpotifyPlay();
+            EmbedController.addListener("playback_started", hideAutoplayHint);
+            EmbedController.addListener("playback_update", (event) => {
+              if (event?.data && !event.data.isPaused) hideAutoplayHint();
+            });
+          },
+        );
+      };
+
+      window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        window.__SpotifyIFrameAPI = IFrameAPI;
+        initSpotifyEmbed(IFrameAPI);
+      };
+      if (window.__SpotifyIFrameAPI)
+        initSpotifyEmbed(window.__SpotifyIFrameAPI);
+
+      createFloatingHearts();
+      window.addEventListener("resize", createFloatingHearts);
+      loadSlideshowConfig()
+        .then(({ assets, intervalMs, palette }) => {
+          applyPalette({ ...fallbackPalette, ...palette });
+          renderSlideshow(assets, intervalMs);
+        })
+        .catch((error) => {
+          console.error("[Slideshow]", error);
+          setGalleryStatus("Could not load slideshow.json right now.");
+        });
+    </script>
     <script>
       const flowersAudio = document.getElementById("flowers-audio");
       let flowersAudioFadeInterval = null;

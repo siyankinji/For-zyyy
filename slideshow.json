@@ -1,0 +1,233 @@
+{
+  "valentine": {
+    "slideshow": {
+      "intervalMs": 5000,
+      "assets": [
+        {
+          "title": "31.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/31.png",
+          "sortOrder": 1
+        },
+        {
+          "title": "30.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/30.jpg",
+          "sortOrder": 2
+        },
+        {
+          "title": "29.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/29.png",
+          "sortOrder": 3
+        },
+        {
+          "title": "28.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/28.png",
+          "sortOrder": 4
+        },
+        {
+          "title": "27.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/27.png",
+          "sortOrder": 5
+        },
+        {
+          "title": "26.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/26.png",
+          "sortOrder": 6
+        },
+        {
+          "title": "25.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/25.jpg",
+          "sortOrder": 7
+        },
+        {
+          "title": "24.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/24.png",
+          "sortOrder": 8
+        },
+        {
+          "title": "23.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/23.png",
+          "sortOrder": 9
+        },
+        {
+          "title": "22.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/22.png",
+          "sortOrder": 10
+        },
+        {
+          "title": "21.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/21.png",
+          "sortOrder": 11
+        },
+        {
+          "title": "20.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/20.png",
+          "sortOrder": 12
+        },
+        {
+          "title": "19.gif",
+          "description": "",
+          "type": "image",
+          "src": "assets/19.gif",
+          "sortOrder": 13
+        },
+        {
+          "title": "18.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/18.png",
+          "sortOrder": 14
+        },
+        {
+          "title": "17.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/17.png",
+          "sortOrder": 15
+        },
+        {
+          "title": "16.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/16.png",
+          "sortOrder": 16
+        },
+        {
+          "title": "15.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/15.png",
+          "sortOrder": 17
+        },
+        {
+          "title": "14.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/14.png",
+          "sortOrder": 18
+        },
+        {
+          "title": "13.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/13.png",
+          "sortOrder": 19
+        },
+        {
+          "title": "12.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/12.jpg",
+          "sortOrder": 20
+        },
+        {
+          "title": "11.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/11.jpg",
+          "sortOrder": 21
+        },
+        {
+          "title": "10.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/10.png",
+          "sortOrder": 22
+        },
+        {
+          "title": "9.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/9.png",
+          "sortOrder": 23
+        },
+        {
+          "title": "8.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/8.jpg",
+          "sortOrder": 24
+        },
+        {
+          "title": "8.png",
+          "description": "",
+          "type": "image",
+          "src": "assets/8.png",
+          "sortOrder": 25
+        },
+        {
+          "title": "7.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/7.jpg",
+          "sortOrder": 26
+        },
+        {
+          "title": "6.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/6.jpg",
+          "sortOrder": 27
+        },
+        {
+          "title": "5.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/5.jpg",
+          "sortOrder": 28
+        },
+        {
+          "title": "4.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/4.jpg",
+          "sortOrder": 29
+        },
+        {
+          "title": "3.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/3.jpg",
+          "sortOrder": 30
+        },
+        {
+          "title": "2.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/2.jpg",
+          "sortOrder": 31
+        },
+        {
+          "title": "1.jpg",
+          "description": "",
+          "type": "image",
+          "src": "assets/1.jpg",
+          "sortOrder": 32
+        }
+      ]
+    }
+  }
+}
