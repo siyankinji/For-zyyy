@@ -294,6 +294,7 @@
         gap: 25px;
         margin-top: 35px;
         animation: fadeIn 0.8s ease;
+        justify-items: center;
       }
 
       .choice-card {
@@ -304,8 +305,10 @@
         );
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 105, 180, 0.25);
-        border-radius: 28px;
-        padding: 35px 25px;
+       border-radius: 50%;
+        width: min(100%, 220px);
+        aspect-ratio: 1 / 1;
+        padding: 24px;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
@@ -314,6 +317,19 @@
         align-items: center;
         position: relative;
         overflow: hidden;
+        animation: bounceFloat 2.8s ease-in-out infinite;
+      }
+
+      .choice-card:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+
+      .choice-card:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      .choice-card:nth-child(4) {
+        animation-delay: 0.75s;
       }
 
       .choice-card::before {
@@ -336,10 +352,62 @@
         opacity: 1;
       }
 
-      .choice-card:hover {
+  .choice-card:hover {
         transform: translateY(-8px) scale(1.05);
         box-shadow: 0 20px 50px rgba(255, 105, 180, 0.35);
         border-color: rgba(255, 105, 180, 0.5);
+      }
+
+      @keyframes bounceFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        45% {
+          transform: translateY(-10px);
+        }
+        70% {
+          transform: translateY(2px);
+        }
+      }
+
+      @keyframes bounceFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        45% {
+          transform: translateY(-10px);
+        }
+        70% {
+          transform: translateY(2px);
+        }
+      }
+
+      @keyframes bounceFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        45% {
+          transform: translateY(-10px);
+        }
+        70% {
+          transform: translateY(2px);
+        }
+      }
+
+      @keyframes bounceFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        45% {
+          transform: translateY(-10px);
+        }
+        70% {
+          transform: translateY(2px);
+        }
       }
 
       .choice-card .icon {
@@ -797,26 +865,11 @@
   </head>
   <body>
     <div class="container">
-      <div id="screen1" class="fade-in">
-        <img src="CatLetter.gif" class="cat-gif" alt="cat with letter" />
-        <h1>Hello My Love!</h1>
-        <p class="subtitle">do you want to see your gift?</p>
-        <div class="button-group">
-          <button onclick="showScreen2()">YES PLEASE</button>
-          <button class="no-btn" onclick="showPromise()">NO THANKS</button>
-        </div>
-      </div>
-
-      <div id="screen-promise" class="hidden">
-        <img src="CatSad.gif" class="cat-gif" alt="sad cat" />
-        <h1>I promise you'll like it</h1>
-        <button onclick="showScreen2()">TRY AGAIN</button>
-      </div>
-
-      <div id="screen2" class="hidden">
+      <div id="screen2" class="fade-in">
         <h1>THESE ARE FOR YOU!</h1>
         <p class="subtitle">I hope you like it, I love you</p>
         <div class="choices-grid">
+
           <div class="choice-card" onclick="showFlowers()">
             <div class="icon">
               <img src="Flowers.gif" alt="flowers" />
@@ -1125,9 +1178,6 @@
 
       function showScreen2() {
         showScreen("screen2");
-      }
-      function showPromise() {
-        showScreen("screen-promise");
       }
       function showFlowers() {
         showScreen("screen-flowers");
