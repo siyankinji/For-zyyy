@@ -91,7 +91,7 @@
   </head>
   <body>
     <main class="card">
-      <img src="CatFlowers.gif" alt="Cute cat" class="hero-gif" />
+      <img id="heroGif" src="CatFlowers.gif" alt="Cute cat" class="hero-gif" />
       <h1 id="questionText">Hello baby, do you want to see my gift?</h1>
       <div class="actions">
         <button id="yesBtn" type="button">Yes</button>
@@ -102,12 +102,17 @@
 
     <script>
       const questionText = document.getElementById("questionText");
+      const heroGif = document.getElementById("heroGif");
       const yesBtn = document.getElementById("yesBtn");
       const noBtn = document.getElementById("noBtn");
 
       const noCount = Number(sessionStorage.getItem("noCount") || 0);
 
-      if (noCount === 0) {
+     if (noCount >= 5) {
+        questionText.textContent = "Okay... now I'm crying 🥺";
+        heroGif.src = "CatSad.gif";
+        heroGif.alt = "Crying cat";
+      } else if (noCount === 0) {
         questionText.textContent = "Hello baby, do you want to see my gift?";
       } else if (noCount === 1) {
         questionText.textContent = "WHY?";
@@ -115,7 +120,7 @@
         questionText.textContent = "CLICK YES!";
       }
 
-      const growth = 1 + Math.min(noCount * 0.15, 1.35);
+      const growth = 1 + noCount * 0.2;
       yesBtn.style.transform = `scale(${growth})`;
 
       yesBtn.addEventListener("click", () => {
